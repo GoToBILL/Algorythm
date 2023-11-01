@@ -32,6 +32,4 @@ while stack:
                 index[nx][ny] = index[pop_ele[0]][pop_ele[1]] + 1
 
 for i in range(n):
-    for j in range(m):
-        print(index[i][j],end=" ")
-    print()
+    print(" ".join(map(str, index[i])))
