@@ -1,11 +1,7 @@
-import sys      
+L = int(input())
+string = input()
+answer = 0
 
-input = sys.stdin.readline
-n = int(input())
-str_n = input()
-
-res = 0
-
-for i in range(n):
-    res += (ord(str_n[i]) - 96) * (31 ** i)
-print(res)
+for i in range(L):
+    answer += (ord(string[i])-96) * (31 ** i) #아스키 코드 값을 돌려주는 ord함수
+print(answer % 1234567891)
