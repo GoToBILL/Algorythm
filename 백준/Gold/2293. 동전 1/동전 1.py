@@ -1,15 +1,20 @@
-import sys         
-import heapq
-
+import sys
+from collections import deque
+from itertools import permutations as pt
+from itertools import combinations
+from itertools import product
+from itertools import combinations_with_replacement
+sys.setrecursionlimit(10**6)
 
 input = sys.stdin.readline
-n,k = map(int, input().split())
-lists = [int(input()) for _ in range(n)]
+n , m = map(int,input().split())
 
-dp = [0 for _ in range(k+1)]
-dp[0] = 1
-for num in lists:
-    for i in range(num,k+1):
-        if i - num >= 0:
-            dp[i] += dp[i-num]
-print(dp[k])
+dp = [0] * (m)
+dp.insert(0,1)
+for i in range(n):
+    a = int(input())
+    for j in range(a,m+1):
+        dp[j] += dp[j-a]
+
+print(dp[m])
+
